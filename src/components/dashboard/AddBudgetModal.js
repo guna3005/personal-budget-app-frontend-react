@@ -33,12 +33,23 @@ const AddBudgetModal = ({ open, handleClose }) => {
     }));
   };
 
+  const isValidHex = (colour) => /^#([0-9A-F]{3}){1,2}$/i.test(colour);
+
+  const areFieldsValid = () => {
+    const { name, cost, month, colour } = budgetData;
+    return name && cost && month && colour && isValidHex(colour);
+  };
+
   const handleSubmit = async () => {
+    if (!areFieldsValid()) {
+      alert('Please fill all fields correctly. Make sure the color is a valid hexadecimal value.');
+      return;
+    }
+
     try {
       const response = await axios.post('http://localhost:3000/api/budgets', budgetData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
       });
-      console.log(response)
       if (response.status === 201) {
         alert('Budget added successfully!');
         handleClose();  
