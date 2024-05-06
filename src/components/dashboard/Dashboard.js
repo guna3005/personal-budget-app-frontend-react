@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   const fetchBudgets = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/budgets", {
+      const response = await axios.get("http://138.197.24.120:3000/api/budgets", {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       setBudgets(response.data);

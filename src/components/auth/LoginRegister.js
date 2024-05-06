@@ -32,7 +32,7 @@ const LoginRegister = () => {
             return;
         }
         
-        const url = `http://localhost:3000/api/auth/${isLogin ? 'login' : 'register'}`;
+        const url = `http://138.197.24.120:3000/api/auth/${isLogin ? 'login' : 'register'}`;
         try {
             const response = await axios.post(url, { username, password });
             if (isLogin) {

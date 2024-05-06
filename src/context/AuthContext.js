@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   const refreshAuthToken = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/auth/refresh-token",
+        "http://138.197.24.120:3000/api/auth/refresh-token",
         {
           method: "POST",
           headers: {

@@ -47,7 +47,7 @@ const AddBudgetModal = ({ open, handleClose }) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/api/budgets', budgetData, {
+      const response = await axios.post('http://138.197.24.120:3000/api/budgets', budgetData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` }
       });
       if (response.status === 201) {
